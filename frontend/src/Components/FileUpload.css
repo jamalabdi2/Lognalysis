@@ -1,0 +1,27 @@
+.fileUploadDiv{
+  padding: 40px;
+  margin: 10px 0px;
+}
+.label{
+  text-align: start;
+  padding-bottom: 10px;
+}
+.fileForm{
+  border: 2px solid;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 40%;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.submitBtn{
+  padding: 6px;
+  color: white;
+  border-radius: 12px;
+  background-color: blue;
+  border: 0px;
+  cursor: pointer;
+
+}
