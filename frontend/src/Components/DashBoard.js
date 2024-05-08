@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FILE_GET_ENDPOINT } from '../Config/EnvironmentVariables';
 import axios from 'axios';
 import './DashBoard.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ServerStatistics from './ServerStatistics'
 import StatusCodeBarChart from './StatusCodeBarChart'
@@ -14,6 +16,7 @@ import TimeAnalysisChart from './TimeAnalysisChart'
 import ResponseSizeDistributionChart from './ResponseSizeDistributionChart'
 import RegionalAnalysisChart from './RegionalAnalysisChart'
 import OperatingSystemUsageChart from './OperatingSystemUsageChart'
+import DeleteUploadedFile from './DeleteUploadedFile'
 function DashBoard() {
   const [processedData, setProcessedData] = useState(null);
 
@@ -28,9 +31,9 @@ function DashBoard() {
           ?.replace(/^"(.*)"$/, '$1');
 
         if (!cookieValue) {
+          toast.error('You have deleted your log file')
           throw new Error('Folder name not found in cookie');
           //TODO
-
           // PUT TOAST HERE FOR ERROR WHEN COOKIE IS NOT AVAILABLE
         }
 
@@ -67,8 +70,11 @@ function DashBoard() {
   return (
 
     <div className='dashboard'>
-  
-      <h1 className='dashboardTitle'>Dashboard</h1>
+      
+      <div className="main-title">
+        <h1 className='dashboardTitle'>Dashboard</h1>
+        <DeleteUploadedFile/>
+      </div>
     
       <ServerStatistics  stats = {server_statistics}/>
 

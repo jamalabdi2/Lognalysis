@@ -67,3 +67,12 @@
 .title{
   color: #161616;
 }
+
+.main-title{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  grid-column: span 2;
+  text-align: center;
+  align-items: center;
+}

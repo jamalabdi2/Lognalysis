@@ -1,6 +1,7 @@
 import os
 import uuid
 import json
+import shutil
 from fastapi import FastAPI, File, UploadFile, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from utils import data_transform
@@ -127,4 +128,22 @@ async def get_processed_json_data(folder_name: str):
 
     except Exception as e:
         error_message = f"There was an error: {str(e)}\nStack Trace:\n{traceback.format_exc()}"
+        raise HTTPException(status_code=500, detail=error_message)
+
+
+@app.delete("/deleteUploadedFile/{folder_name}")
+async def delete_uploaded_file(folder_name: str):
+    try:
+
+        folder_path = os.path.join(LOG_FILE_PATH, folder_name)
+        
+        # Check if the folder exists
+        if os.path.exists(folder_path):
+            # Delete the folder and its contents
+            shutil.rmtree(folder_path)
+            return {"message": "Log file deleted successfully."}
+        else:
+            raise HTTPException(status_code=404, detail="Folder not found.")
+    except Exception as e:
+        error_message = f"There was an error: {str(e)}"
         raise HTTPException(status_code=500, detail=error_message)

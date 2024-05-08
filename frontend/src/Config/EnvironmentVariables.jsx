@@ -1,3 +1,4 @@
 export const FILE_UPLOAD_ENDPOINT = process.env.REACT_APP_UPLOAD_FILE_ENDPOINT
 export const NODE_ENV = process.env.REACT_APP_NODE_ENV
 export const FILE_GET_ENDPOINT = process.env.REACT_APP_GET_FILE_ENDPOINT
+export const FILE_DELETE_ENDPOINT = process.env.REACT_APP_DELETE_UPLOADED_FILE

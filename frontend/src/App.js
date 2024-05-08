@@ -3,6 +3,7 @@ import FileUpload from './Components/FileUpload';
 import {Routes,Route} from 'react-router-dom'
 import DashBoard from './Components/DashBoard'
 import LandingPage from './Components/LandingPage';
+import NotFoundPage from './Components/NotFoundPage'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/dashboard' element = {<DashBoard/>} />
         <Route path='/' element = {<LandingPage/>} />
         <Route path='/fileUpload' element = {<FileUpload/>} />
+        <Route path='*' element={<NotFoundPage />} />
         
       </Routes>
       {/* <StatCard/>
