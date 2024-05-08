@@ -1,0 +1,69 @@
+
+
+.dashboardTitle{
+    color: #ffffff;
+
+}
+.dashboard{
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    text-align: center;
+    gap: 20px; 
+    width:60% ;
+    place-items: center;
+    
+}
+
+
+.statisticsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .statisticsTable th,
+  .statisticsTable td {
+    padding: 8px;
+    border: 1px solid #ffffff;
+    text-align: left;
+  }
+  
+  .statisticsTable th {
+    background-color: #161616;
+    color: #ffffff;
+  }
+  
+  .statisticsTable tbody tr:nth-child(even) {
+    background-color: #818181;
+    color: #ffffff;
+  }
+
+.div1{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.statusCodeBarChart,.OperatingSystemUsageChart,.RegionalAnalysisChart,.ResponseSizeDistributionChart,.TimeAnalysisChart{
+  width: 500px;
+}
+.BrowserUsagePieChart{
+  width: 350px;
+}
+.CountryRequestsBarChart{
+  display: flex;
+  grid-column: span 2;
+  width: 100%;
+  justify-content: space-between;
+}
+.CountryRequestsBarChart_bar{
+  width: 50%;
+}
+.BrowserUsagePieChart{
+  height: 60vh;
+}
+
+.title{
+  color: #161616;
+}

@@ -1,0 +1,40 @@
+/* TopTenRequestedURLs.css */
+
+.container {
+    margin: 20px;
+    width: 500px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.url-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.url-table th,
+.url-table td {
+    padding: 8px 12px;
+    border: 1px solid #000;
+    text-align: left;
+    color: #000; /* Font color set to black */
+}
+
+.url-table th {
+    background-color: #f2f2f2;
+}
+
+.url-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.url-table tbody tr:hover {
+    background-color: #add8e6;
+}

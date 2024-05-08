@@ -1,0 +1,88 @@
+
+
+.landing-page {
+    color: #2B2B2B;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  
+  .landing-header {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  .landing-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .landing-header p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .landing-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  
+  }
+  
+  .feature-card {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1.1rem;
+  }
+  
+  .cta {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .cta h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color:#2B2B2B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-btn:hover {
+    background-color: #ff6701;
+  }
+  
+  .footer {
+    text-align: center;
+    font-size: 1rem;
+  }
+  

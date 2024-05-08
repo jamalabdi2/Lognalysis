@@ -1,7 +1,11 @@
 backend/venv
 backend/.env
 backend/**/__pycache__
-
+backend/Logs
 
 frontend/node_modules
 frontend/.env
+
+.vscode/
+.git/
+.DS_Store

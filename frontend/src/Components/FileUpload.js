@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FILE_UPLOAD_ENDPOINT } from '../Config/EnvironmentVariables';
-import './FileUpload.css'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './FileUpload.css';
+
 function FileUpload() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB in bytes
   const MIN_FILE_SIZE = 1 * 1024; // 1MB in bytes
@@ -14,23 +19,18 @@ function FileUpload() {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Check if the file is a .log file
     if (!file.name.toLowerCase().endsWith('.log')) {
-      setErrorMessage('Only .log files allowed.');
-      setSelectedFile(null);
+      toast.error('Only .log files allowed.');
       return;
     }
 
-    // Check file size (limit to 20MB)
     if (file.size > MAX_FILE_SIZE) {
-      setErrorMessage('File size exceeds the limit (20MB).');
-      setSelectedFile(null);
+      toast.error('File size exceeds the limit (20MB).');
       return;
     }
 
     if (file.size < MIN_FILE_SIZE) {
-      setErrorMessage('File size is too small (minimum 1MB).');
-      setSelectedFile(null);
+      toast.error('File size is too small (minimum 1MB).');
       return;
     }
 
@@ -42,7 +42,7 @@ function FileUpload() {
     e.preventDefault();
 
     if (!selectedFile) {
-      setErrorMessage('Please select a file.');
+      toast.error('Please select a file.');
       return;
     }
 
@@ -50,35 +50,35 @@ function FileUpload() {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const response = await axios.post(FILE_UPLOAD_ENDPOINT, formData);
-    
+      const response = await axios.post(FILE_UPLOAD_ENDPOINT, formData,{withCredentials: true});
 
       if (response.status === 200) {
-        const data = response.data;
-        console.log(data);
         setUploadStatus('success');
-        setErrorMessage('');
+        toast.success('Successfully uploaded the file');
+        setSelectedFile(null)
+        navigate('/dashboard');
       } else {
         setUploadStatus('error');
-        setErrorMessage('Error uploading file.');
+        toast.error('Error uploading file.');
       }
     } catch (error) {
       console.error('Error uploading file:', error);
       setUploadStatus('error');
-      setErrorMessage('Error uploading file. Please try again.');
+      toast.error('Error uploading file. Please try again.');
     }
   };
 
   return (
     <div className='fileUploadDiv'>
+      <div className="info">
+        <p className='fileUploadTitle'>Hey Upload your Log file</p>
+      </div>
       <form className='fileForm'>
-          <label htmlFor="fileInput" className='label'>Upload Log file</label>
-          <input type="file" onChange={handleFileChange} className='fileInput' />
-          <button type='submit' onClick={handleFileUpload} className='submitBtn'>Upload</button>
+        <input type="file" onChange={handleFileChange} className='fileInput' />
+        <button type='submit' onClick={handleFileUpload} className='submitBtn'>Upload</button>
       </form>
       {uploadStatus === 'success' && <p className="success-message">File uploaded successfully.</p>}
       {uploadStatus === 'error' && <p className="error-message">{errorMessage}</p>}
-
     </div>
   );
 }
