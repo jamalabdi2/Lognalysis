@@ -37,6 +37,7 @@ Lognalysis is powered by the following technologies:
 ### Regional Analysis and Other Information
 ![Regional Analysis and Other Information](https://github.com/jamalabdi2/Lognalysis/assets/113813239/ff205066-806a-4ba0-8a62-28c61c011705)
 
-## Additional Details
+## Video Recording
 
-[Include any additional details about the project here, such as installation instructions, deployment guidelines, or usage tips.]
+https://github.com/jamalabdi2/Lognalysis/assets/113813239/6ea80807-f2b4-4a31-b20f-f5ce4157e32e
+
